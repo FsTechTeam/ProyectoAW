@@ -1,0 +1,18 @@
+Subir cambios local
+1. add en mi rama
+2. commit
+3. push en mi rama
+4. Cambiar a mi master local
+5. Revisar si no hay cambios necesario en GitHub desktop
+6. pull en master
+7. merge
+8. Full bajar cambios de master origin
+
+
+Para bajar cambios
+1. guardar todos los cambios en tu rama local
+2. Ir master local
+3. pull, bajar cambios master a master
+4. ir a tu rama
+5. Revisar GitHub desktop
+6. merge con master
