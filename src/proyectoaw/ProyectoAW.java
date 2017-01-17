@@ -25,20 +25,7 @@ public class ProyectoAW {
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoAWPU");
         EntityManager em = emf.createEntityManager();
-        TblCategoriaJpaController service = new TblCategoriaJpaController(emf);
-        TblCategoria ncategoria = new TblCategoria();
-        em.getTransaction().begin();
-        ncategoria.setCategoria("Nuevo");
-        ncategoria.setActivo(true);
-        try{
-            service.create(ncategoria);
-            em.getTransaction().commit();
-            System.out.println("Exito");
-        }catch(Exception e){
-            System.out.println(e);
-            em.getTransaction().rollback();
-        }
-        em.close();
+       
         emf.close();
         
         
