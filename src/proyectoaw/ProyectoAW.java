@@ -5,6 +5,8 @@
  */
 package proyectoaw;
 
+import Conexion.conexion;
+import app.pPrincipal;
 import controladores.TblCategoriaJpaController;
 import entidades.TblCategoria;
 import javax.persistence.EntityManager;
@@ -22,12 +24,35 @@ public class ProyectoAW {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+<<<<<<< HEAD
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoAWPU");
         EntityManager em = emf.createEntityManager();
        
         emf.close();
         
+=======
+//        EntityManagerFactory emf = conexion.getInstancia().getEMF();
+//        EntityManager em = emf.createEntityManager();
+//        TblCategoriaJpaController service = new TblCategoriaJpaController(emf);
+//        TblCategoria ncategoria = new TblCategoria();
+//        em.getTransaction().begin();
+//        ncategoria.setCategoria("Nuevo");
+//        ncategoria.setActivo(true);
+//        try{
+//            service.create(ncategoria);
+//            em.getTransaction().commit();
+//            System.out.println("Exito");
+//        }catch(Exception e){
+//            System.out.println(e);
+//            em.getTransaction().rollback();
+//        }
+//        em.close();
+//        emf.close();
+//        
+        pPrincipal principal = new pPrincipal();
+        principal.setVisible(true);
+>>>>>>> Lester
         
     }
     
