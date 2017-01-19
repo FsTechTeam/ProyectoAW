@@ -1,1 +1,13 @@
 /build/
+/dist/
+*.bak
+
+*.properties
+
+*.xml
+
+*.properties
+
+*.properties
+
+nbproject/project.properties
