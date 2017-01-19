@@ -44,13 +44,13 @@ public class pInventario extends javax.swing.JPanel {
         jTable1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "id", "Producto", "Presentacion", "Precio Venta", "Precio Compra", "Existencias", "Precio Calle", "Title 8"
+                "Codigo", "Producto", "Presentacion", "Puntos", "Precio Compra", "Existencias"
             }
         ));
         jTable1.setToolTipText("Medicamentos");
@@ -60,6 +60,9 @@ public class pInventario extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         jLabel1.setFont(new java.awt.Font("Comfortaa", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 153));
