@@ -24,6 +24,12 @@ public class ProyectoAW {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoAWPU");
+        EntityManager em = emf.createEntityManager();
+       
+        emf.close();
+
 //        EntityManagerFactory emf = conexion.getInstancia().getEMF();
 //        EntityManager em = emf.createEntityManager();
 //        TblCategoriaJpaController service = new TblCategoriaJpaController(emf);
@@ -44,6 +50,7 @@ public class ProyectoAW {
 //        
         pPrincipal principal = new pPrincipal();
         principal.setVisible(true);
+
         
     }
     

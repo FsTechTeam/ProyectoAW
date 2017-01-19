@@ -1,13 +1,6 @@
-/build/
+/build/*
 /dist/
-*.bak
+/nbproject/*
+src/META-INF/persistence.xml
 
 *.properties
-
-*.xml
-
-*.properties
-
-*.properties
-
-nbproject/project.properties
