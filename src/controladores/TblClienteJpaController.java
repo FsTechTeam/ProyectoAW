@@ -7,6 +7,7 @@ package controladores;
 
 import controladores.exceptions.IllegalOrphanException;
 import controladores.exceptions.NonexistentEntityException;
+import controladores.exceptions.PreexistingEntityException;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
@@ -23,7 +24,7 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author lestermeneses
+ * @author frankzapeta
  */
 public class TblClienteJpaController implements Serializable {
 
@@ -36,7 +37,7 @@ public class TblClienteJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(TblCliente tblCliente) {
+    public void create(TblCliente tblCliente) throws PreexistingEntityException, Exception {
         if (tblCliente.getTblClienteCollection() == null) {
             tblCliente.setTblClienteCollection(new ArrayList<TblCliente>());
         }
@@ -106,6 +107,11 @@ public class TblClienteJpaController implements Serializable {
                 }
             }
             em.getTransaction().commit();
+        } catch (Exception ex) {
+            if (findTblCliente(tblCliente.getId()) != null) {
+                throw new PreexistingEntityException("TblCliente " + tblCliente + " already exists.", ex);
+            }
+            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -128,14 +134,6 @@ public class TblClienteJpaController implements Serializable {
             Collection<TblHistorialPuntos> tblHistorialPuntosCollectionOld = persistentTblCliente.getTblHistorialPuntosCollection();
             Collection<TblHistorialPuntos> tblHistorialPuntosCollectionNew = tblCliente.getTblHistorialPuntosCollection();
             List<String> illegalOrphanMessages = null;
-            for (TblCliente tblClienteCollectionOldTblCliente : tblClienteCollectionOld) {
-                if (!tblClienteCollectionNew.contains(tblClienteCollectionOldTblCliente)) {
-                    if (illegalOrphanMessages == null) {
-                        illegalOrphanMessages = new ArrayList<String>();
-                    }
-                    illegalOrphanMessages.add("You must retain TblCliente " + tblClienteCollectionOldTblCliente + " since its tblClienteid field is not nullable.");
-                }
-            }
             for (TblFactura tblFacturaCollectionOldTblFactura : tblFacturaCollectionOld) {
                 if (!tblFacturaCollectionNew.contains(tblFacturaCollectionOldTblFactura)) {
                     if (illegalOrphanMessages == null) {
@@ -188,6 +186,12 @@ public class TblClienteJpaController implements Serializable {
             if (tblClienteidNew != null && !tblClienteidNew.equals(tblClienteidOld)) {
                 tblClienteidNew.getTblClienteCollection().add(tblCliente);
                 tblClienteidNew = em.merge(tblClienteidNew);
+            }
+            for (TblCliente tblClienteCollectionOldTblCliente : tblClienteCollectionOld) {
+                if (!tblClienteCollectionNew.contains(tblClienteCollectionOldTblCliente)) {
+                    tblClienteCollectionOldTblCliente.setTblClienteid(null);
+                    tblClienteCollectionOldTblCliente = em.merge(tblClienteCollectionOldTblCliente);
+                }
             }
             for (TblCliente tblClienteCollectionNewTblCliente : tblClienteCollectionNew) {
                 if (!tblClienteCollectionOld.contains(tblClienteCollectionNewTblCliente)) {
@@ -252,13 +256,6 @@ public class TblClienteJpaController implements Serializable {
                 throw new NonexistentEntityException("The tblCliente with id " + id + " no longer exists.", enfe);
             }
             List<String> illegalOrphanMessages = null;
-            Collection<TblCliente> tblClienteCollectionOrphanCheck = tblCliente.getTblClienteCollection();
-            for (TblCliente tblClienteCollectionOrphanCheckTblCliente : tblClienteCollectionOrphanCheck) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("This TblCliente (" + tblCliente + ") cannot be destroyed since the TblCliente " + tblClienteCollectionOrphanCheckTblCliente + " in its tblClienteCollection field has a non-nullable tblClienteid field.");
-            }
             Collection<TblFactura> tblFacturaCollectionOrphanCheck = tblCliente.getTblFacturaCollection();
             for (TblFactura tblFacturaCollectionOrphanCheckTblFactura : tblFacturaCollectionOrphanCheck) {
                 if (illegalOrphanMessages == null) {
@@ -280,6 +277,11 @@ public class TblClienteJpaController implements Serializable {
             if (tblClienteid != null) {
                 tblClienteid.getTblClienteCollection().remove(tblCliente);
                 tblClienteid = em.merge(tblClienteid);
+            }
+            Collection<TblCliente> tblClienteCollection = tblCliente.getTblClienteCollection();
+            for (TblCliente tblClienteCollectionTblCliente : tblClienteCollection) {
+                tblClienteCollectionTblCliente.setTblClienteid(null);
+                tblClienteCollectionTblCliente = em.merge(tblClienteCollectionTblCliente);
             }
             em.remove(tblCliente);
             em.getTransaction().commit();
