@@ -27,7 +27,6 @@ public class ProyectoAW {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoAWPU");
         EntityManager em = emf.createEntityManager();
-       
         emf.close();
 
 //        EntityManagerFactory emf = conexion.getInstancia().getEMF();
