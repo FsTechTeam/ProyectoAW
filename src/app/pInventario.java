@@ -35,7 +35,6 @@ public class pInventario extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel21 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(818, 541));
@@ -79,15 +78,6 @@ public class pInventario extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Comfortaa", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel2.setText("+ Agregar Producto");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,11 +92,9 @@ public class pInventario extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addGap(12, 12, 12)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2))
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 274, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -121,10 +109,7 @@ public class pInventario extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jLabel21))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel2)))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -142,16 +127,9 @@ public class pInventario extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jTextField1KeyTyped
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
-
-        
-    }//GEN-LAST:event_jLabel2MouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
