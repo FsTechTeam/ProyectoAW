@@ -32,8 +32,8 @@ public class pPrincipal extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        btnPrincipal = new javax.swing.JButton();
+        btnInventario = new javax.swing.JButton();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(100, 0), new java.awt.Dimension(100, 0), new java.awt.Dimension(100, 32767));
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -47,27 +47,33 @@ public class pPrincipal extends javax.swing.JFrame {
 
         panelNice2.setBackground(new java.awt.Color(0, 102, 153));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Comfortaa", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setVerticalAlignment(SwingConstants.BOTTOM);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/principal.png"))); // NOI18N
-        jLabel1.setLabelFor(jLabel1);
-        jLabel1.setText("Prncipal");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Comfortaa", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Inventario.png"))); // NOI18N
-        jLabel2.setLabelFor(jLabel1);
-        jLabel2.setText("Inventario");
-        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnPrincipal.setFont(new java.awt.Font("Comfortaa", 0, 14)); // NOI18N
+        btnPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        btnPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/principal.png"))); // NOI18N
+        btnPrincipal.setText("Principal");
+        btnPrincipal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPrincipal.setIgnoreRepaint(true);
+        btnPrincipal.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnPrincipal.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                btnPrincipalMouseClicked(evt);
+            }
+        });
+
+        btnInventario.setFont(new java.awt.Font("Comfortaa", 0, 14)); // NOI18N
+        btnInventario.setForeground(new java.awt.Color(255, 255, 255));
+        btnInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Inventario.png"))); // NOI18N
+        btnInventario.setText("Inventario");
+        btnInventario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnInventario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnInventario.setIgnoreRepaint(true);
+        btnInventario.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnInventario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnInventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInventarioMouseClicked(evt);
             }
         });
 
@@ -76,20 +82,20 @@ public class pPrincipal extends javax.swing.JFrame {
         panelNice2Layout.setHorizontalGroup(
             panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNice2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
+                .addGap(30, 30, 30)
+                .addComponent(btnPrincipal)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addContainerGap(726, Short.MAX_VALUE))
+                .addComponent(btnInventario)
+                .addContainerGap(770, Short.MAX_VALUE))
         );
         panelNice2Layout.setVerticalGroup(
             panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNice2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnInventario)
+                    .addComponent(btnPrincipal))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jPanel2.add(panelNice2, java.awt.BorderLayout.CENTER);
@@ -107,7 +113,7 @@ public class pPrincipal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -144,6 +150,16 @@ public class pPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrincipalMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnPrincipalMouseClicked
+
+    private void btnInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventarioMouseClicked
+        // TODO add your handling code here:
+        llamarPanelInventario();
+    }//GEN-LAST:event_btnInventarioMouseClicked
+
     //Aqui estan los metodos que ayudan al funcionamiento del panel
     public void llamarPanelInventario(){
         this.jTabbedPane1.removeAll();
@@ -159,12 +175,6 @@ public class pPrincipal extends javax.swing.JFrame {
     //Aqui terminan los metodos
     
     
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
-        llamarPanelInventario();
-        
-    }//GEN-LAST:event_jLabel2MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -201,9 +211,9 @@ public class pPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnInventario;
+    private javax.swing.JButton btnPrincipal;
     private javax.swing.Box.Filler filler2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
