@@ -45,10 +45,10 @@ import javax.xml.bind.annotation.XmlTransient;
 public class TblCliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+     @Column(name = "dpi")
+    private String dpi;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "apellido")
@@ -71,7 +71,7 @@ public class TblCliente implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tblClienteid")
     private Collection<TblCliente> tblClienteCollection;
     @JoinColumn(name = "tblCliente_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private TblCliente tblClienteid;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tblClienteid")
     private Collection<TblFactura> tblFacturaCollection;
@@ -163,6 +163,13 @@ public class TblCliente implements Serializable {
 
     public void setPin(String pin) {
         this.pin = pin;
+    }
+    public String getDpi() {
+        return dpi;
+    }
+
+    public void setDpi(String dpi) {
+        this.dpi = dpi;
     }
 
     @XmlTransient
