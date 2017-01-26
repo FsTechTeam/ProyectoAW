@@ -34,6 +34,8 @@ public class pPrincipal extends javax.swing.JFrame {
         panelNice2 = new org.edisoncor.gui.panel.PanelNice();
         btnPrincipal = new javax.swing.JButton();
         btnInventario = new javax.swing.JButton();
+        btnNvoAsociado = new javax.swing.JButton();
+        btnNvoVenta = new javax.swing.JButton();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(100, 0), new java.awt.Dimension(100, 0), new java.awt.Dimension(100, 32767));
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -77,6 +79,41 @@ public class pPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnNvoAsociado.setFont(new java.awt.Font("Comfortaa", 0, 14)); // NOI18N
+        btnNvoAsociado.setForeground(new java.awt.Color(255, 255, 255));
+        btnNvoAsociado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/addUser.png"))); // NOI18N
+        btnNvoAsociado.setText("Nuevo Asociado");
+        btnNvoAsociado.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnNvoAsociado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNvoAsociado.setIgnoreRepaint(true);
+        btnNvoAsociado.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnNvoAsociado.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnNvoAsociado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNvoAsociadoMouseClicked(evt);
+            }
+        });
+
+        btnNvoVenta.setFont(new java.awt.Font("Comfortaa", 0, 14)); // NOI18N
+        btnNvoVenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnNvoVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ventas.png"))); // NOI18N
+        btnNvoVenta.setText("Nueva Venta");
+        btnNvoVenta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnNvoVenta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNvoVenta.setIgnoreRepaint(true);
+        btnNvoVenta.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnNvoVenta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnNvoVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNvoVentaMouseClicked(evt);
+            }
+        });
+        btnNvoVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNvoVentaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelNice2Layout = new javax.swing.GroupLayout(panelNice2);
         panelNice2.setLayout(panelNice2Layout);
         panelNice2Layout.setHorizontalGroup(
@@ -86,13 +123,19 @@ public class pPrincipal extends javax.swing.JFrame {
                 .addComponent(btnPrincipal)
                 .addGap(18, 18, 18)
                 .addComponent(btnInventario)
-                .addContainerGap(770, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnNvoAsociado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnNvoVenta)
+                .addContainerGap(541, Short.MAX_VALUE))
         );
         panelNice2Layout.setVerticalGroup(
             panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNice2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(panelNice2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnNvoVenta)
+                    .addComponent(btnNvoAsociado)
                     .addComponent(btnInventario)
                     .addComponent(btnPrincipal))
                 .addContainerGap(37, Short.MAX_VALUE))
@@ -160,6 +203,18 @@ public class pPrincipal extends javax.swing.JFrame {
         llamarPanelInventario();
     }//GEN-LAST:event_btnInventarioMouseClicked
 
+    private void btnNvoAsociadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNvoAsociadoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNvoAsociadoMouseClicked
+
+    private void btnNvoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNvoVentaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNvoVentaMouseClicked
+
+    private void btnNvoVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNvoVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNvoVentaActionPerformed
+
     //Aqui estan los metodos que ayudan al funcionamiento del panel
     public void llamarPanelInventario(){
         this.jTabbedPane1.removeAll();
@@ -207,11 +262,14 @@ public class pPrincipal extends javax.swing.JFrame {
             public void run() {
                 new pPrincipal().setVisible(true);
             }
+            
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInventario;
+    private javax.swing.JButton btnNvoAsociado;
+    private javax.swing.JButton btnNvoVenta;
     private javax.swing.JButton btnPrincipal;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JMenu jMenu1;
